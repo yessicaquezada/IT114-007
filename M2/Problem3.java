@@ -21,7 +21,23 @@ public class Problem3 {
         //TODO convert each value to positive
         //set the result to the proper index of the output array
         //hint: don't forget to handle the data types properly
-        
+
+        for (int i = 0; i < arr.length; i++)
+        {
+            if (arr[i] instanceof Integer) {
+
+                output[i] = Math.abs((Integer) arr[i]);
+                
+                } else if (arr[i] instanceof Double) {
+                
+                output[i] = Math.abs((Double) arr[i]);
+                
+                } else if (arr[i] instanceof String) {
+                
+                output[i] = Math.abs(Integer.parseInt((String) arr[i]));
+                
+                }
+        }
         //end edit section
 
         StringBuilder sb = new StringBuilder();
