@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch NumberGuesser4",
+            "request": "launch",
+            "mainClass": "NumberGuesser4",
+            "projectName": "IT114-007_27c4775f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Problem1",
+            "request": "launch",
+            "mainClass": "Problem1",
+            "projectName": "IT114-007_27c4775f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Problem2",
+            "request": "launch",
+            "mainClass": "Problem2",
+            "projectName": "IT114-007_27c4775f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Problem3",
+            "request": "launch",
+            "mainClass": "Problem3",
+            "projectName": "IT114-007_27c4775f"
+        }
+    ]
+}
