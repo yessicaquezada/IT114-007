@@ -6,6 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class NumberGuesser4 {
+
     private int maxLevel = 1;
     private int level = 1;
     private int strikes = 0;
@@ -17,6 +18,7 @@ public class NumberGuesser4 {
     private String[] fileHeaders = {"Level", "Strikes", "Number", "MaxLevel"};//used for demo readability
 
     private void saveState(){
+    
         String[] data = {level+"", strikes+"", number +"", maxLevel+""};
         String output = String.join(",", data);
         //Note: we don't need a file reference as FileWriter creates the file if it doesn't exist
@@ -72,6 +74,7 @@ public class NumberGuesser4 {
 			e2.printStackTrace();
 		}
         System.out.println("Loaded state");
+
     }
 
     /***
@@ -81,10 +84,10 @@ public class NumberGuesser4 {
      * @return number between bounds
      */
     private void generateNewNumber(int level) {
-        int range = 9 + ((level - 1) * 5);
+        int range = 10 + ((level - 1) * 5);
         System.out.println("Welcome to level " + level);
         System.out.println(
-                "I picked a random number between 1-" + (range + 1) + ", let's see if you can guess.");
+                "I picked a random number between 1-" + (range) + ", let's see if you can guess.");
         number = random.nextInt(range) + 1;
     }
 
@@ -93,14 +96,14 @@ public class NumberGuesser4 {
         level++;// level up!
         strikes = 0;
     }
-
+    
     private boolean processCommands(String message) {
         boolean processed = false;
         if (message.equalsIgnoreCase("quit")) {
             System.out.println("Tired of playing? No problem, see you next time.");
             processed = true;
         }
-        //TODO add other conditions here
+        // TODO add other conditions here
         return processed;
     }
 
@@ -128,11 +131,11 @@ public class NumberGuesser4 {
             String highLowhint = "";
             if (guess > number)
             {
-                highLowhint = "Go lower!";
+                highLowhint = "Too high, try again!";
             }
             else if (guess < number)
             {
-                highLowhint = "Go higher!";
+                highLowhint = "Too low, try again!";
             }
             // End of high and low hint
             
@@ -151,16 +154,18 @@ public class NumberGuesser4 {
             guess = Integer.parseInt(message.trim());
         } catch (NumberFormatException e) {
             System.out.println("You didn't enter a number, please try again");
-        }catch(Exception e2){
+        } catch(Exception e2){
             System.out.println("Null message received");
         }
         return guess;
     }
 
     public void start() {
+
         try (Scanner input = new Scanner(System.in);) {
             System.out.println("Welcome to NumberGuesser4.0");
             System.out.println("To exit, type the word 'quit'.");
+
             loadState();
             do {
                 if (pickNewRandom) {
@@ -168,7 +173,9 @@ public class NumberGuesser4 {
                     saveState();
                     pickNewRandom = false;
                 }
+
                 System.out.println("Type a number and press enter");
+                
                 //we'll want to use a local variable here
                 //so we can feed it into multiple functions
                 String message = input.nextLine();
@@ -192,7 +199,12 @@ public class NumberGuesser4 {
     }
 
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("What's your name? ");
+        scan.nextLine();
+        
         NumberGuesser4 ng = new NumberGuesser4();
         ng.start();
     }
+
 }
