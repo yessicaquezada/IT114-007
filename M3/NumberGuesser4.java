@@ -199,6 +199,7 @@ public class NumberGuesser4 {
     }
 
     public static void main(String[] args) {
+        
         Scanner scan = new Scanner(System.in);
         System.out.print("What's your name? ");
         scan.nextLine();
