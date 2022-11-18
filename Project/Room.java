@@ -3,6 +3,9 @@ package Project;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
+
+
 
 public class Room implements AutoCloseable{
 	protected static Server server;// used to refer to accessible server functions
@@ -114,6 +117,27 @@ public class Room implements AutoCloseable{
 					case LOGOFF:
 						Room.disconnectClient(client, this);
 						break;
+				
+					case "roll":
+					int guess = -1;
+					try {
+						guess = Integer.parseInt(comm2[1].trim());
+					} catch (NumberFormatException e) {
+						sendMessage(client, comm2[1] + " is not a valid guess");
+					}
+
+					if(guess > -1)
+					{
+						int roll = new Random().nextInt(guess) + 1;
+						sendMessage(client, "Rolled " + guess + " and got " + roll);
+					}
+
+					break;
+
+					case "flip":
+					sendMessage(client, "Flipped a coin and got " + (Math.random() > .5 ? "heads" : "tails"));
+					break;
+
 					default:
 						wasCommand = false;
 						break;
@@ -166,6 +190,18 @@ public class Room implements AutoCloseable{
 			return;
 		}
 		
+		// split 
+		
+
+		// replace all for fonts
+		String regex = "\\*";
+		String regex1 = " ";
+
+		regex = message.replaceAll(regex, "<u><i><b><color>");
+		regex1 = message.replaceAll(regex1, "</u></i></b></color>");
+
+
+
 		String from = (sender == null ? "Room" : sender.getClientName());
 		Iterator<ServerThread> iter = clients.iterator();
 		while (iter.hasNext()) {
