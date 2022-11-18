@@ -1,5 +1,6 @@
 package Project;
 
+import java.awt.Font;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -151,5 +152,8 @@ public class ServerThread extends Thread {
             info("Client already closed");
         }
         info("Thread cleanup() complete");
+    }
+
+    public static void setFont(Font font) {
     }
 }
