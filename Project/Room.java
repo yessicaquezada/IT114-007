@@ -189,16 +189,39 @@ public class Room implements AutoCloseable{
 			// it was a command, don't broadcast
 			return;
 		}
-		
-		// split 
-		
+				
 
 		// replace all for fonts
-		String regex = "\\*";
-		String regex1 = " ";
+		String regex = "\\*!";
+		String regex1 = "!\\*";
 
-		regex = message.replaceAll(regex, "<u><i><b><color>");
-		regex1 = message.replaceAll(regex1, "</u></i></b></color>");
+		message = message.replaceAll(regex, "<b>");
+		message = message.replaceAll(regex1, "</b>");
+
+		String regex2 = "#\\$"; 
+		String regex3 = "\\$#";
+
+		message = message.replaceAll(regex2, "<i>");
+		message = message.replaceAll(regex3, "</i>");
+
+		String regex4 = "!\\$";
+		String regex5 = "\\$!";
+		
+		message = message.replaceAll(regex4, "<u>");
+		message = message.replaceAll(regex5, "</u>");
+
+		String regex6 = "\\*\\$";
+		String regex7 = "\\$\\*";
+
+		message = message.replaceAll(regex6, "<color red>");
+		message = message.replaceAll(regex7, "</color red>");
+
+		String regex8 = "!#";
+		String regex9 = "#!";
+
+		message = message.replaceAll(regex8, "<color green>");
+		message = message.replaceAll(regex9, "</color green>");
+
 
 
 
