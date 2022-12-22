@@ -296,7 +296,7 @@ public class Room implements AutoCloseable {
 			}
 		}
 
-		return true;
+		return false;
 	}
 
 	protected synchronized void sendUserListToClient(ServerThread receiver) {
