@@ -55,6 +55,7 @@ public class ChatPanel extends JPanel {
         JTextField textValue = new JTextField();
         input.add(textValue);
         JButton button = new JButton("Send");
+        JButton exportButton = new JButton("Export");
         // lets us submit with the enter key instead of just the button click
         textValue.addKeyListener(new KeyListener() {
 
@@ -94,6 +95,7 @@ public class ChatPanel extends JPanel {
                 e1.printStackTrace();
             }
         });
+
         chatArea = content;
         input.add(button);
         userListPanel = new UserListPanel(controls);
