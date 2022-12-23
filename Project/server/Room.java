@@ -8,6 +8,7 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.net.ssl.ExtendedSSLSession;
 import javax.swing.plaf.TreeUI;
 
 import Project.common.Constants;

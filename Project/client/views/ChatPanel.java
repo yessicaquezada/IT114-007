@@ -10,6 +10,9 @@ import java.awt.event.ContainerListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -55,7 +58,12 @@ public class ChatPanel extends JPanel {
         JTextField textValue = new JTextField();
         input.add(textValue);
         JButton button = new JButton("Send");
+
+        JPanel input2 = new JPanel();
+        input2.setLayout(new BoxLayout(input2, BoxLayout.X_AXIS));
         JButton exportButton = new JButton("Export");
+        input.add(exportButton);
+        
         // lets us submit with the enter key instead of just the button click
         textValue.addKeyListener(new KeyListener() {
 
@@ -170,4 +178,5 @@ public class ChatPanel extends JPanel {
         JScrollBar vertical = ((JScrollPane) chatArea.getParent().getParent()).getVerticalScrollBar();
         vertical.setValue(vertical.getMaximum());
     }
+
 }
